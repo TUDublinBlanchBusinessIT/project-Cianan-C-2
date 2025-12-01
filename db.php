@@ -1,13 +1,12 @@
 <?php
+$servername = "localhost";
+$username   = "root";
+$password   = "";                
+$dbname     = "assignment_tracker";
 
-$host = "localhost";
-$user = "root";
-$pass = "3306";
-$dbname = "assignment_tracker";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
