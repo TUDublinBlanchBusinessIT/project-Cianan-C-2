@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
 
+$message = "";
+
 if (isset($_POST['save'])) {
 
     $m = $_POST['module'];
@@ -10,9 +12,12 @@ if (isset($_POST['save'])) {
     $sql = "INSERT INTO assignments (module_name, title, due_date)
             VALUES ('$m', '$t', '$d')";
 
-    mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
+        $message = "Assignment added successfully!";
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +26,13 @@ if (isset($_POST['save'])) {
 <body>
 
 <h1>Add Assignment</h1>
+
+<?php
+if ($message != "") {
+    echo "<p style='color: green; font-weight: bold;'>$message</p>";
+}
+?>
+
 
 <form method="post">
     <p>Module Name:<br>
