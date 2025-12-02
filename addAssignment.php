@@ -44,6 +44,14 @@ if ($message != "") {
     <p>Due Date:<br>
        <input type="date" name="date"></p>
 
+    <p>Status:<br>
+       <select name="status">
+           <option value="Not started">Not started</option>
+           <option value="In progress">In progress</option>
+           <option value="Completed">Completed</option>
+       </select>
+    </p>
+
     <p><button type="submit" name="save">Save</button></p>
 </form>
 
